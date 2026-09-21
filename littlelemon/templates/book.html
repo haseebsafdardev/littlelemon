@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="booking-page">
+    <div class="booking-card">
+        <div class="form-column">
+            <h1>Make a reservation</h1>
+
+            <form method="post" id="booking-form" novalidate>
+                {% csrf_token %}
+
+                <div class="field">
+                    <label for="{{ form.first_name.id_for_label }}">First name:</label>
+                    {{ form.first_name }}
+                    {% for error in form.first_name.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="field">
+                    <label for="{{ form.reservation_date.id_for_label }}">Reservation date:</label>
+                    {{ form.reservation_date }}
+                    {% for error in form.reservation_date.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="field">
+                    <label for="{{ form.reservation_slot.id_for_label }}">Reservation slot:</label>
+                    {{ form.reservation_slot }}
+                    {% for error in form.reservation_slot.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                {% for error in form.non_field_errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+
+                <button type="submit" class="button">Reserve</button>
+            </form>
+        </div>
+
+        <aside class="reservation-list">
+            <h2 id="bookings-title">Bookings</h2>
+            <div id="booking-results" aria-live="polite">
+                <p>Loading bookings...</p>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<script src="{% static 'js/booking.js' %}"></script>
+<script>
+/* Fetch API is also present here so it is visible in View Page Source. */
+async function loadBookingsFromAPI(selectedDate) {
+    const response = await fetch(`/bookings?date=${encodeURIComponent(selectedDate)}`);
+    if (!response.ok) throw new Error("Unable to load bookings.");
+    return await response.json();
+}
+</script>
+{% endblock %}

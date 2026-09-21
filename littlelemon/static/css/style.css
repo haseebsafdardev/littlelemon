@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f5f7f4;
+    color: #202020;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.site-header {
+    width: min(900px, 94%);
+    margin: 30px auto 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 0;
+}
+
+.lemon-mark {
+    font-size: 48px;
+}
+
+.brand-name {
+    color: #405c54;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+nav {
+    background: #405c54;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 9px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: min(900px, 94%);
+    margin: 8px auto 20px;
+}
+
+.booking-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: white;
+    border: 1px solid #e2e6e2;
+    padding: 28px;
+    min-height: 420px;
+}
+
+h1 {
+    font-size: 34px;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 25px;
+    margin-top: 4px;
+}
+
+.field {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+input, select {
+    width: 100%;
+    max-width: 270px;
+    padding: 9px;
+    border: 2px solid #d6d6d6;
+    border-radius: 3px;
+    background: white;
+    font-size: 14px;
+}
+
+select option:disabled {
+    color: #aaa;
+    background: #e7e7e7;
+}
+
+.button {
+    display: inline-block;
+    border: 0;
+    border-radius: 4px;
+    background: #405c54;
+    color: white;
+    padding: 11px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:hover {
+    opacity: .9;
+}
+
+.error {
+    color: #a32626;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.booking-item {
+    font-family: Arial, sans-serif;
+    margin: 0 0 13px;
+}
+
+.no-booking {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.hero {
+    min-height: 360px;
+    padding: 80px;
+    background: #405c54;
+    color: white;
+}
+
+footer {
+    width: min(900px, 94%);
+    margin: 20px auto 40px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e7ece8;
+    font-family: Arial, sans-serif;
+}
+
+.footer-logo {
+    font-size: 30px;
+}
+
+@media (max-width: 700px) {
+    .booking-card {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+}
